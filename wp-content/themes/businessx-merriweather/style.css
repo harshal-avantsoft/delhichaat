@@ -1,0 +1,45 @@
+/*
+Theme Name:     Businessx Merriweather
+Theme URI:      http://www.acosmin.com/theme/businessx/
+Author:         acosmin
+Author URI:     http://www.acosmin.com/
+Description:    Businessx Merriweather is a child theme of Businessx. It adds support for Merriweather/Open Sans fonts combo and some typography styles. Businessx is a modern one page WordPress theme with WooCommerce & Polylang support, perfect for any business, agency or blog. With the help of the free Businessx Extensions plugin you will be able to add 14 sections (Slider, Features, About Us, Team, Clients, Portfolio, Actions, Testimonials, Pricing, FAQ, Hero, Blog, Contact, Google Map) to your homepage and position them as you want on page. Download this plugin from: https://wordpress.org/plugins/businessx-extensions/ & Full Demo: http://demo.acosmin.com/themes/businessx/ . 
+Version:        1.0.0
+License:        GNU General Public License version 3
+License URI:    http://www.gnu.org/licenses/gpl-3.0.html
+Text Domain:    businessx-josefin
+Template:       businessx
+Tags: custom-header, grid-layout, right-sidebar, sticky-post, translation-ready, threaded-comments, featured-images, custom-menu, theme-options, footer-widgets, portfolio, blog, e-commerce
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+html, body {
+	font-size: 1em;
+}
+
+body, input, select, textarea, .logo-wrap {
+	font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .sec-pricing-box .package-pricing, .sec-pricing-box .package-badge .badge, .ac-btn, input[type=submit], input[type=reset], input[type=button], button, .posts-pagination, .comment-navigation,
+.woocommerce-breadcrumb,
+.woocommerce-pagination,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt,
+.woocommerce #respond input#submit.alt,
+.main-header-btns .ac-btn-h.shopping-button .count {
+	font-family: 'Merriweather', serif;
+}
+
+@media only screen and (min-width: 90.063em) { html, body { font-size: 18px; } }
+@media only screen and (min-width: 90.063em) and (max-width: 120em) { html, body { font-size: 16px; } }
+@media only screen and (min-width: 120.063em) { html, body { font-size: 18px; } }
+@media only screen and (min-width: 120.063em) and (max-width: 160.000em) { html, body { font-size: 18px; } }
+@media only screen and (min-width: 160.063em) { html, body { font-size: 20px; } }
