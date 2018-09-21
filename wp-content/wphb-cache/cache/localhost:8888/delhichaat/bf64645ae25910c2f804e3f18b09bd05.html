@@ -30,6 +30,8 @@ img.emoji {
 }
 </style>
 <link rel='stylesheet' id='bx-ext-sections-styles-css'  href='http://localhost:8888/delhichaat/wp-content/plugins/businessx-extensions/css/sections.min.css?ver=20170122' type='text/css' media='all' />
+<link rel='stylesheet' id='rm_theme_matchmytheme-css'  href='http://localhost:8888/delhichaat/wp-content/plugins/custom-registration-form-builder-with-submission-manager/public/css/theme_rm_matchmytheme.css?ver=4.1.3.0' type='text/css' media='all' />
+<link rel='stylesheet' id='RegistrationMagic-css'  href='http://localhost:8888/delhichaat/wp-content/plugins/custom-registration-form-builder-with-submission-manager/public/css/style_rm_front_end.css?ver=4.1.3.0' type='text/css' media='all' />
 <link rel='stylesheet' id='woocommerce-layout-css'  href='http://localhost:8888/delhichaat/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=3.4.5' type='text/css' media='all' />
 <style id='woocommerce-layout-inline-css' type='text/css'>
 
@@ -51,6 +53,23 @@ img.emoji {
 <link rel='stylesheet' id='font-awesome-css'  href='http://localhost:8888/delhichaat/wp-content/themes/businessx/assets/icons/css/font-awesome.min.css?ver=4.7.0' type='text/css' media='all' />
 <script type='text/javascript' src='http://localhost:8888/delhichaat/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
 <script type='text/javascript' src='http://localhost:8888/delhichaat/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://localhost:8888/delhichaat/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://localhost:8888/delhichaat/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://localhost:8888/delhichaat/wp-includes/js/jquery/ui/mouse.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://localhost:8888/delhichaat/wp-includes/js/jquery/ui/sortable.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://localhost:8888/delhichaat/wp-includes/js/jquery/ui/tabs.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://localhost:8888/delhichaat/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.11.4'></script>
+<script type='text/javascript'>
+jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"Close","currentText":"Today","monthNames":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthNamesShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"nextText":"Next","prevText":"Previous","dayNames":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"dayNamesShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"dayNamesMin":["S","M","T","W","T","F","S"],"dateFormat":"MM d, yy","firstDay":1,"isRTL":false});});
+</script>
+<script type='text/javascript' src='http://localhost:8888/delhichaat/wp-includes/js/jquery/ui/effect.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='http://localhost:8888/delhichaat/wp-includes/js/jquery/ui/effect-slide.min.js?ver=1.11.4'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var rm_ajax = {"url":"http:\/\/localhost:8888\/delhichaat\/wp-admin\/admin-ajax.php","gmap_api":null,"no_results":"No Results Found","invalid_zip":"Invalid Zip Code","request_processing":"Please wait...","hours":"Hours","minutes":"Minutes","seconds":"Seconds","days":"Days","months":"Months","years":"Years"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://localhost:8888/delhichaat/wp-content/plugins/custom-registration-form-builder-with-submission-manager/public/js/script_rm_front.js?ver=4.1.3.0'></script>
 <link rel='https://api.w.org/' href='http://localhost:8888/delhichaat/wp-json/' />
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://localhost:8888/delhichaat/xmlrpc.php?rsd" />
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://localhost:8888/delhichaat/wp-includes/wlwmanifest.xml" /> 
@@ -73,13 +92,23 @@ img.emoji {
 <header id="main-header" class="main-header mh-fixed mh-transparent">
 	<div class="main-header-inner-wrap clearfix">
 
-		<div class="logo-wrap"><a href="http://localhost:8888/delhichaat/" class="custom-logo-link" rel="home" itemprop="url"><img width="1196" height="335" src="http://localhost:8888/delhichaat/wp-content/uploads/2018/09/cropped-delhichaat_logo.png" class="custom-logo" alt="Delhichaat" itemprop="logo" srcset="http://localhost:8888/delhichaat/wp-content/uploads/2018/09/cropped-delhichaat_logo.png 1196w, http://localhost:8888/delhichaat/wp-content/uploads/2018/09/cropped-delhichaat_logo-300x84.png 300w, http://localhost:8888/delhichaat/wp-content/uploads/2018/09/cropped-delhichaat_logo-768x215.png 768w, http://localhost:8888/delhichaat/wp-content/uploads/2018/09/cropped-delhichaat_logo-1024x287.png 1024w, http://localhost:8888/delhichaat/wp-content/uploads/2018/09/cropped-delhichaat_logo-594x166.png 594w" sizes="(max-width: 1196px) 100vw, 1196px" /></a></div>        <div class="main-header-right clearfix">
-        	<ul class="actions-menu clearfix"><li id="menu-item-260" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-32 current_page_item menu-item-260"><a href="http://localhost:8888/delhichaat/">Home</a></li>
-<li id="menu-item-258" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-258"><a href="http://localhost:8888/delhichaat/menu/">Menu</a></li>
+		<div class="logo-wrap"><a href="http://localhost:8888/delhichaat/" class="custom-logo-link" rel="home" itemprop="url"><img width="1196" height="335" src="http://localhost:8888/delhichaat/wp-content/uploads/2018/09/cropped-delhichaat_logo.png" class="custom-logo" alt="Delhichaat" itemprop="logo" srcset="http://localhost:8888/delhichaat/wp-content/uploads/2018/09/cropped-delhichaat_logo.png 1196w, http://localhost:8888/delhichaat/wp-content/uploads/2018/09/cropped-delhichaat_logo-300x84.png 300w, http://localhost:8888/delhichaat/wp-content/uploads/2018/09/cropped-delhichaat_logo-768x215.png 768w, http://localhost:8888/delhichaat/wp-content/uploads/2018/09/cropped-delhichaat_logo-1024x287.png 1024w, http://localhost:8888/delhichaat/wp-content/uploads/2018/09/cropped-delhichaat_logo-594x166.png 594w" sizes="(max-width: 1196px) 100vw, 1196px" /></a></div>		<nav class="main-menu-wrap" role="navigation" aria-label="Primary Menu">
+			<ul class="main-menu clearfix"><li id="menu-item-260" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-32 current_page_item menu-item-260"><a href="http://localhost:8888/delhichaat/">Home</a></li>
+<li id="menu-item-258" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-258"><a href="http://localhost:8888/delhichaat/menu/">Menu</a>
+<ul class="sub-menu">
+	<li id="menu-item-292" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-292"><a href="http://localhost:8888/delhichaat/product-category/breakfast/">Breakfast</a></li>
+	<li id="menu-item-293" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-293"><a href="http://localhost:8888/delhichaat/product-category/anytime-snacks/">Anytime snacks</a></li>
+	<li id="menu-item-290" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-290"><a href="http://localhost:8888/delhichaat/product-category/chaat-corner/">Chaat Corner</a></li>
+	<li id="menu-item-291" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-291"><a href="http://localhost:8888/delhichaat/product-category/specials/">Specials</a></li>
+	<li id="menu-item-294" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-294"><a href="http://localhost:8888/delhichaat/product-category/drinks/">Drinks</a></li>
+</ul>
+</li>
 <li id="menu-item-274" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-274"><a href="http://localhost:8888/delhichaat/about-us/">About us</a></li>
 <li id="menu-item-259" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-259"><a href="http://localhost:8888/delhichaat/blogs/">Blogs</a></li>
 <li id="menu-item-256" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-256"><a href="http://localhost:8888/delhichaat/my-account/">My account</a></li>
-<li class="close-menu"><a href="#" class="ac-btn btn-small ac-btn-mobile-act-close"><i class="fa fa-close"></i> </a></li></ul>
+<li class="close-menu"><a href="#" class="ac-btn btn-small ac-btn-mobile-close"><i class="fa fa-close"></i> </a></li></ul>    	</nav>
+		        <div class="main-header-right clearfix">
+        	
 			<div class="main-header-btns">
             	        <span class="ac-btn-h ac-btn-search"><a href="#" id="big-search-trigger"><i class="fa fa-search"></i> </a></span>
         		<span class="ac-btn-h shopping-button ac-btn-mobile">
@@ -87,7 +116,7 @@ img.emoji {
 				<i class="fa fa-shopping-bag"></i> <span class="count">0</span>
 			</a>
 		</span>
-		<span class="ac-btn-h ac-btn-mobile ac-btn-act"><a href="#" class="ac-btn-mobile-actions-menu"><i class="fa fa-bars"></i> </a></span>			</div>
+		<span class="ac-btn-h ac-btn-mobile ac-btn-mob"><a href="#" class="ac-btn-mobile-menu"><i class="fa fa-bars"></i> </a></span>			</div>
         </div>
         
 	</div>
@@ -207,4 +236,4 @@ var businessx_scripts_data = {"search_placeholder":"Type the keywords you are se
 
 	</body>
 </html>
-<!-- Hummingbird cache file was created in 0.136830091476 seconds, on 21-09-18 12:32:42 -->
+<!-- Hummingbird cache file was created in 0.121495962143 seconds, on 21-09-18 16:12:48 -->
