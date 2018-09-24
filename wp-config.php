@@ -68,7 +68,6 @@ $table_prefix = 'dc_';
 
 
 
-define('WP_CACHE', true); // Added by WP Hummingbird
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */

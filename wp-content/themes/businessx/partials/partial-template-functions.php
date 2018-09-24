@@ -114,7 +114,7 @@ if ( ! function_exists( 'businessx_menu_action_btns' ) ) {
 			'theme_location' => 'actions',
 			'items_wrap'     => '<ul class="actions-menu clearfix">%3$s<li class="close-menu"><a href="#" class="ac-btn btn-small ac-btn-mobile-act-close">' . businessx_icon( 'close', false ) . '</a></li></ul>',
 			'container'      => false,
-			'depth'          => 1,
+			'depth'          => 2,
 			'fallback_cb'    => '__return_false',
 			'echo'           => false,
 		) );

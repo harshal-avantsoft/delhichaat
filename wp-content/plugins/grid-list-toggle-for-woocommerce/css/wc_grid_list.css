@@ -5,7 +5,8 @@ ul.phoen_list li.product {
 }
 
 ul.phoen_list li.product img {
-	width: 30.75% !important;
+    width: 79.75% !important;
+	/*width: 30.75% !important;*/
 	display: inline-block !important;
 	vertical-align: top;
 	float: left;

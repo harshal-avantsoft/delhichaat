@@ -165,6 +165,14 @@ add_action( 'after_setup_theme', 'businessx_content_width', 0 );
 if ( ! function_exists( 'businessx_scripts' ) ) {
 	function businessx_scripts() {
 
+
+        // Add the following two lines //
+        wp_enqueue_style('bootstrap-cdn-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+        wp_enqueue_script('bootstrap-cdn-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
+        // ------               -------//
+        wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
+        wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('parent-style'));
+        
 		// Google Fonts
 		wp_enqueue_style( 'businessx-fonts', businessx_fonts_setup(), array(), null );
 
