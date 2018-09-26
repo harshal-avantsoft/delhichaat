@@ -366,3 +366,51 @@ if ( ! function_exists( 'businessx_register_required_plugins' ) ) {
 	}
 }
 add_action( 'tgmpa_register', 'businessx_register_required_plugins' );
+
+
+
+
+/**
+ * @snippet       Automatically Update Cart on Quantity Change - WooCommerce
+ * @how-to        Watch tutorial @ https://businessbloomer.com/?p=19055
+ * @sourcecode    https://businessbloomer.com/?p=73470
+ * @author        Rodolfo Melogli
+ * @compatible    Woo 3.4
+ */
+add_action( 'wp_footer', 'bbloomer_cart_refresh_update_qty' );
+ 
+function bbloomer_cart_refresh_update_qty() { 
+    if (is_cart()) { 
+        ?> 
+        <script type="text/javascript"> 
+            jQuery('div.woocommerce').on('click', 'input.qty', function(){ 
+                jQuery("[name='update_cart']").trigger("click"); 
+            }); 
+        </script> 
+        <?php 
+    } 
+}
+
+
+
+/**
+ * @snippet       Hide Price & Add to Cart for Logged Out Users
+ * @how-to        Watch tutorial @ https://businessbloomer.com/?p=19055
+ * @sourcecode    https://businessbloomer.com/?p=299
+ * @author        Rodolfo Melogli
+ * @testedwith    WooCommerce 3.3.4
+ */
+add_action( 'init', 'bbloomer_hide_price_add_cart_not_logged_in' ); 
+function bbloomer_hide_price_add_cart_not_logged_in() { 
+if ( !is_user_logged_in() ) {       
+ remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+ remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );  
+ add_action( 'woocommerce_single_product_summary', 'bbloomer_print_login_to_see', 31 );
+ add_action( 'woocommerce_after_shop_loop_item', 'bbloomer_print_login_to_see', 11 );
+}
+} 
+function bbloomer_print_login_to_see() {
+echo '<a href="' . get_permalink(wc_get_page_id('myaccount')) . '">' . __('Login to see prices', 'theme_name') . '</a>';
+}
