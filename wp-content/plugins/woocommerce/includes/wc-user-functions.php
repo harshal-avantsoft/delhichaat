@@ -39,15 +39,6 @@ if ( ! function_exists( 'wc_create_new_customer' ) ) {
 	 */
 	function wc_create_new_customer( $email, $username = '', $password = '' ) {
 
-		// Check the email address.
-		if ( empty( $email ) || ! is_email( $email ) ) {
-			return new WP_Error( 'registration-error-invalid-email', __( 'Please provide a valid email address.', 'woocommerce' ) );
-		}
-
-		if ( email_exists( $email ) ) {
-			return new WP_Error( 'registration-error-email-exists', apply_filters( 'woocommerce_registration_error_email_exists', __( 'An account is already registered with your email address. Please log in.', 'woocommerce' ), $email ) );
-		}
-
 		// Handle username creation.
 		if ( 'no' === get_option( 'woocommerce_registration_generate_username' ) || ! empty( $username ) ) {
 			$username = sanitize_user( $username );
@@ -71,6 +62,17 @@ if ( ! function_exists( 'wc_create_new_customer' ) ) {
 				$append++;
 			}
 		}
+		
+		
+		// Check the email address.
+		if ( empty( $email ) || ! is_email( $email ) ) {
+			return new WP_Error( 'registration-error-invalid-email', __( 'Please provide a valid email address.', 'woocommerce' ) );
+		}
+
+		if ( email_exists( $email ) ) {
+			return new WP_Error( 'registration-error-email-exists', apply_filters( 'woocommerce_registration_error_email_exists', __( 'An account is already registered with your email address. Please log in.', 'woocommerce' ), $email ) );
+		}
+		
 
 		// Handle password creation.
 		if ( 'yes' === get_option( 'woocommerce_registration_generate_password' ) && empty( $password ) ) {
