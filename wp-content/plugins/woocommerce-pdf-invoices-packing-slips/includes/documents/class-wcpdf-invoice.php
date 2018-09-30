@@ -29,7 +29,7 @@ class Invoice extends Order_Document_Methods {
 	public function __construct( $order = 0 ) {
 		// set properties
 		$this->type		= 'invoice';
-		$this->title	= __( 'Invoice', 'woocommerce-pdf-invoices-packing-slips' );
+		$this->title	= __( 'Receipt', 'woocommerce-pdf-invoices-packing-slips' );
 		$this->icon		= WPO_WCPDF()->plugin_url() . "/assets/images/invoice.png";
 
 		// Call parent constructor
@@ -38,7 +38,7 @@ class Invoice extends Order_Document_Methods {
 
 	public function get_title() {
 		// override/not using $this->title to allow for language switching!
-		return apply_filters( "wpo_wcpdf_{$this->slug}_title", __( 'Invoice', 'woocommerce-pdf-invoices-packing-slips' ), $this );
+		return apply_filters( "wpo_wcpdf_{$this->slug}_title", __( 'Receipt', 'woocommerce-pdf-invoices-packing-slips' ), $this );
 	}
 
 	public function init() {

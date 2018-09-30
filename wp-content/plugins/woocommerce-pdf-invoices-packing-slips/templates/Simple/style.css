@@ -109,6 +109,7 @@ td.shop-info {
 }
 .document-type-label {
 	text-transform: uppercase;
+	margin: auto;
 }
 
 /* Recipient addressses & order data */
@@ -143,6 +144,8 @@ table.order-details {
 .quantity,
 .price {
 	width: 20%;
+	text-align: right;
+	font-weight: bold;
 }
 
 .order-details tr {
@@ -270,11 +273,12 @@ table.totals tr.payment_method {
 	padding: 0px !important;
 }
 .navbar-brand>img {
-	height: 100%;
+	height: 80%;
 	width: auto;
 }
-.packing-slip {
-	margin-top: 20px;
+.invoice,.packing-slip {
+	margin: 20px;
+	width: 20vw;
 }
 .shop-address {
 	margin-left: auto;
@@ -282,8 +286,13 @@ table.totals tr.payment_method {
 }
 
 .product-list > .row:nth-child(even){
-	background-color: #dcdcdc;
+	background-color: #f5f5f5;
+	font-weight: bold;
 }
 .product-list > .row:nth-child(odd){
-	background-color: #aaaaaa;
+	background-color: #e2e2e2;
+	font-weight: bold;
+}
+.product-list > .row > div{
+	padding: 0 5px 0;
 }

@@ -91,6 +91,16 @@ abstract class Order_Document_Methods extends Order_Document {
 		//if we got here, it means the addresses are equal -> doesn't ship to different address!
 		return apply_filters( 'wpo_wcpdf_ships_to_different_address', false, $order, $this );
 	}
+
+	/**
+	 * Return / show first and last name
+	 */
+	public function billing_name() {
+		$customer_id = get_current_user_id();
+		echo ucwords(get_user_meta( $customer_id, 'billing_first_name', true ));
+		echo " ";
+		echo ucwords(get_user_meta( $customer_id, 'billing_last_name', true ));
+	}
 	
 	/**
 	 * Return/Show billing address
@@ -497,7 +507,7 @@ abstract class Order_Document_Methods extends Order_Document {
 				$data['ex_price'] = $this->get_formatted_item_price( $item, 'total', 'excl' );
 				$data['price'] = $this->get_formatted_item_price( $item, 'total' );
 				$data['order_price'] = $this->order->get_formatted_line_subtotal( $item ); // formatted according to WC settings
-
+				$data['itemize_price'] = $this->order->get_line_total($item);
 				// Calculate the single price with the same rules as the formatted line subtotal (!)
 				// = before discount
 				$data['ex_single_price'] = $this->get_formatted_item_price( $item, 'single', 'excl' );
@@ -745,7 +755,7 @@ abstract class Order_Document_Methods extends Order_Document {
 	 */
 	public function get_woocommerce_totals() {
 		// get totals and remove the semicolon
-		$totals = apply_filters( 'wpo_wcpdf_raw_order_totals', $this->order->get_order_item_totals(), $this->order );
+		$totals = apply_filters( 'wpo_wcpdf_raw_order_totals', $this->order->get_order_item_totals_custom(), $this->order );
 		
 		// remove the colon for every label
 		foreach ( $totals as $key => $total ) {
