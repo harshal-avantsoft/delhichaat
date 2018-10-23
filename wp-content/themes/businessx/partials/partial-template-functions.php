@@ -286,8 +286,8 @@ if ( ! function_exists( 'businessx_footer_creds_wrapper' ) ) {
 		$disabled = get_theme_mod( 'footer_credits_disable', false);
 		if( ! $disabled ) :
 		?>
-        <div class="footer-credits">
-        	<div class="footer-creds clearfix">
+        <div class="container-fluid footer-credits">
+        	<div class="row footer-creds clearfix">
             	<?php
 				/*	Hooked:
 				/*	businessx_logo_display() - 10
@@ -340,9 +340,9 @@ if ( ! function_exists( 'businessx_footer_creds_copyright' ) ) {
 				<?php
 				$show = apply_filters( 'businessx_theme_credits___show', true );
 				if( $show ) {
-					printf( esc_html_x( '%1$s designed by %2$s.', 'credit text', 'businessx' ),
-						esc_html_x( 'Businessx theme', 'credit text - theme', 'businessx' ),
-						'<a href="' . esc_url( BUSINESSX_AC_URL ) . '" title="' . esc_attr__( 'Premium WordPress Themes &amp; Plugins by Acosmin', 'businessx' ) . '">' . esc_html_x( 'Acosmin', 'credit text - theme author', 'businessx' ) . '</a>'
+					printf( esc_html_x( '%1$s designed by %2$s', 'credit text', 'businessx' ),
+						esc_html_x( '', 'credit text - theme', 'businessx' ),
+						'<a target="_blank" href="' . esc_url( BUSINESSX_AC_URL ) . '" title="' . esc_attr__( 'Premium WordPress Themes &amp; Plugins by Acosmin', 'businessx' ) . '">' . esc_html_x( 'Maahi Software Solutions Inc.', 'credit text - theme author', 'businessx' ) . '</a>'
 					);
 				}
 				?>

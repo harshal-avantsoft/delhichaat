@@ -2835,11 +2835,14 @@ body.nav-open .mobile-menu {
 .footer-credits {
 	color: #7a7a7a;
 	background-color: #222;
+	padding: 0;
 }
 .footer-creds {
-	min-height:	1.667em;
-	padding-top: 3.778em;
-	padding-bottom: 3.778em;
+	min-height: 2.667em;
+    padding-top: 1em;
+	padding-bottom: 1em;
+	margin: 0;
+	max-width: 100%;
 }
 .footer-creds .logo-wrap {
 	position: relative;
@@ -2853,6 +2856,9 @@ body.nav-open .mobile-menu {
 	text-transform: uppercase;
 	letter-spacing: 0.02em;
 	line-height: 1;
+}
+.footer-creds .logo-wrap img {
+	max-height: 1.5em;
 }
 .footer-creds ul {
 	list-style: none;
@@ -2881,15 +2887,19 @@ body.nav-open .mobile-menu {
 	display: inline-block;
 	float: left;
 	margin-right: 1.344em;
+	height: 1.8em;
 }
 .footer-creds-menu li a {
 	margin-bottom: 0 !important;
+}
+.footer-creds-menu-wrap {
+	margin-left: 2em;
 }
 .footer-creds-menu a, .footer-creds-copyright {
 	font-size: 0.722em;
 }
 .footer-creds-copyright {
-	right: 0;
+	right: 2em;
 }
 
 

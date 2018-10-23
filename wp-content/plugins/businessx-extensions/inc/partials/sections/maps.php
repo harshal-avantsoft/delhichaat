@@ -56,7 +56,7 @@
 			// Start
 			if( ! function_exists( 'bx_ext_part__map_overlay_start' ) ) {
 				function bx_ext_part__map_overlay_start() {
-					?><div class="sec-maps-overlay"><?php
+					?><div class="sec-maps-overlay" style="display:none;"><?php
 				}
 			}
 

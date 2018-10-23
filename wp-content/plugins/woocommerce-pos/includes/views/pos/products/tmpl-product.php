@@ -1,5 +1,10 @@
-<div class="img"><img src="{{featured_src}}" title="#{{id}}"></div>
-<div class="title">
+{{#is type 'variable'}}
+<div class="row align-items-center" data-action="variations">
+{{else}}
+<div class="row align-items-center" data-action="add">
+{{/is}}
+<div class="img col-sm-3 col-md-3"><img src="{{featured_src}}" title="#{{id}}"></div>
+<div class="title col-sm-5 col-md-5 text-capitalize">
   <strong>{{name}}</strong>&nbsp;
   {{#with product_attributes}}
   <i class="icon-info-circle" data-toggle="tooltip" title="
@@ -37,19 +42,20 @@
   <small><?php /* translators: woocommerce */ printf( __( '%s in stock', 'woocommerce' ), '{{number stock_quantity precision="auto"}}' ); ?></small>
   {{/if}}
 </div>
-<div class="price">
+<div class="price col-sm-3 col-md-3">
   {{#if on_sale}}<del>{{#list regular_price ' - '}}{{{money this}}}{{/list}}</del>{{/if}} {{#list price ' - '}}{{{money this}}}{{/list}}
 </div>
 {{#is type 'variable'}}
-<div class="action">
-  <a data-action="variations" href="#">
+<div class="action col-sm-1 col-md-1">
+  <a href="#">
     <i class="icon-chevron-circle-right"></i>
   </a>
 </div>
 {{else}}
 <div class="action">
-  <a data-action="add" href="#">
+  <a href="#">
     <i class="icon-plus-circle"></i>
   </a>
 </div>
 {{/is}}
+</div>

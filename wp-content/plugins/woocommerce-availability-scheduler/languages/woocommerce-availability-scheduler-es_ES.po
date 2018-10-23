@@ -1,0 +1,542 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Availability Scheduler\n"
+"POT-Creation-Date: 2018-10-03 12:20+0200\n"
+"PO-Revision-Date: 2018-10-03 12:20+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: classes/admin/WAS_BulkScheduler.php:60
+#, php-format
+msgid "%d product(s) have been updated!"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:90
+#: woocommerce-availability-scheduler.php:79
+msgid "Bulk availability scheduler"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:99 classes/admin/WAS_PostAddon.php:126
+msgid "Current server date"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:101 classes/admin/WAS_OptionsMenu.php:71
+#: classes/admin/WAS_PostAddon.php:128
+msgid "Product availability is set using server time. Current server time is: "
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:102 classes/admin/WAS_PostAddon.php:129
+msgid ""
+"minute(s) offset. To change offset value, go to Bulk availability -> options "
+"menu"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:110
+msgid "Select product categories"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:112
+msgid ""
+"Availability rules will be applied to all products belonging to the selected "
+"categories (and its children, according to the filtering \"Apply for...\" "
+"option below)"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:125
+msgid "Apply to products belonging to"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:128
+msgid "Enabled for every product"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:129
+msgid "Selected categories"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:130
+msgid "Selected categories and all its children"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:136
+msgid "Expiring date"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:138 classes/admin/WAS_PostAddon.php:143
+msgid ""
+"The product will be no longer available after this date (will be set as "
+"'draft'). Leave empty if product hasn't an expiration date."
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:143 classes/admin/WAS_PostAddon.php:148
+msgid "Leave the product visible (but unpurcasable) after expring date?"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:147 classes/admin/WAS_PostAddon.php:153
+msgid "Show countdown to expiration date?"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:151 classes/admin/WAS_PostAddon.php:158
+msgid "Messages before product expiration "
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:153 classes/admin/WAS_PostAddon.php:160
+msgid ""
+"Use the following text area to display a message in the Shop (first box) and "
+"Product (second box) pages after the product exires (if still visible)."
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:154
+#: classes/admin/WAS_BulkScheduler.php:160 classes/admin/WAS_PostAddon.php:161
+#: classes/admin/WAS_PostAddon.php:167
+msgid "Shop message"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:155
+#: classes/admin/WAS_BulkScheduler.php:161 classes/admin/WAS_PostAddon.php:162
+#: classes/admin/WAS_PostAddon.php:168
+msgid "Product message"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:157 classes/admin/WAS_PostAddon.php:164
+msgid "Messages after product expiration (if still visible)"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:159 classes/admin/WAS_PostAddon.php:166
+msgid ""
+"Use the following text area to display a message in the Shop (first box) and "
+"Product (second box) ."
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:180 classes/admin/WAS_PostAddon.php:187
+msgid "Assign this configuration to the selected days"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:183 classes/admin/WAS_PostAddon.php:190
+msgid "Monday"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:184 classes/admin/WAS_PostAddon.php:191
+msgid "Tuesday"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:185 classes/admin/WAS_PostAddon.php:192
+msgid "Wednesday"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:186 classes/admin/WAS_PostAddon.php:193
+msgid "Thursday"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:187 classes/admin/WAS_PostAddon.php:194
+msgid "Friday"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:188 classes/admin/WAS_PostAddon.php:195
+msgid "Saturday"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:189 classes/admin/WAS_PostAddon.php:196
+msgid "Sunday"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:194 classes/admin/WAS_PostAddon.php:200
+msgid "Purchase period"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:196 classes/admin/WAS_PostAddon.php:202
+msgid "Throughout the day"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:197 classes/admin/WAS_PostAddon.php:203
+msgid "Available during the selected time range"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:198
+msgid "Unavailable during the selected range"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:199 classes/admin/WAS_PostAddon.php:205
+msgid "Disabled for this day"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:203 classes/admin/WAS_PostAddon.php:209
+msgid "Start time"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:207 classes/admin/WAS_PostAddon.php:213
+msgid "End time"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:211 classes/admin/WAS_PostAddon.php:217
+msgid "Customers (you can search typing name, last name or email)"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:215 classes/admin/WAS_PostAddon.php:231
+msgid "Roles restriction"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:216
+msgid ""
+"Apply the current availability rule to only a set of user roles or to all "
+"roles except the ones selected."
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:219 classes/admin/WAS_PostAddon.php:236
+msgid "No restriction"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:220 classes/admin/WAS_PostAddon.php:237
+msgid "Apply to selected roles"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:221 classes/admin/WAS_PostAddon.php:238
+msgid "Apply to all except the selected roles"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:223 classes/admin/WAS_PostAddon.php:240
+msgid ""
+"Select roles (leave empty to apply rule to all logged and not logged users)"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:245 classes/admin/WAS_PostAddon.php:264
+msgid "Message showed to non authorized users"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:246 classes/admin/WAS_PostAddon.php:265
+msgid "Type a message to show to non authorized roles"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:249 classes/admin/WAS_PostAddon.php:268
+msgid "Shop page messages"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:251 classes/admin/WAS_PostAddon.php:283
+msgid ""
+"HTML code is accepted. You can also use [start_time] and [end_time] "
+"shortcodes to display start and end times directly in to the message"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:252
+#: classes/admin/WAS_BulkScheduler.php:259
+#: classes/admin/WAS_BulkScheduler.php:321 classes/admin/WAS_PostAddon.php:272
+#: classes/admin/WAS_PostAddon.php:284 classes/admin/WAS_PostAddon.php:355
+msgid "Before sale message"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:253
+#: classes/admin/WAS_BulkScheduler.php:260 classes/admin/WAS_PostAddon.php:273
+#: classes/admin/WAS_PostAddon.php:285
+msgid "During sale message"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:254
+#: classes/admin/WAS_BulkScheduler.php:261 classes/admin/WAS_PostAddon.php:274
+#: classes/admin/WAS_PostAddon.php:286
+msgid "After sale message"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:256 classes/admin/WAS_PostAddon.php:280
+msgid "Product page messages"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:263 classes/admin/WAS_PostAddon.php:292
+msgid "Hide product"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:265 classes/admin/WAS_PostAddon.php:294
+msgid ""
+"Hide product during unavailability period? (product will be setted as draft)"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:269 classes/admin/WAS_PostAddon.php:298
+msgid "Total sales limit"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:271 classes/admin/WAS_PostAddon.php:300
+msgid "After the following value of total sales, the item will be unavaiable."
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:272 classes/admin/WAS_PostAddon.php:301
+msgid "Leave 0 to disable this feature."
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:275 classes/admin/WAS_PostAddon.php:304
+msgid "Note:"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:275 classes/admin/WAS_PostAddon.php:304
+msgid ""
+"Purchase will be disabled at sales limit reach even if the end time has not "
+"been reached in case of \"Time range avaialability\" period or it the "
+"\"Throught the day\" options has been selected."
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:278 classes/admin/WAS_PostAddon.php:307
+msgid ""
+"Would you like to display a progress bar display current day sales on total "
+"sale?"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:280 classes/admin/WAS_PostAddon.php:309
+msgid "No"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:281
+#: classes/admin/WAS_BulkScheduler.php:295
+#: classes/admin/WAS_BulkScheduler.php:308 classes/admin/WAS_PostAddon.php:310
+#: classes/admin/WAS_PostAddon.php:325 classes/admin/WAS_PostAddon.php:338
+msgid "Shop page"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:282
+#: classes/admin/WAS_BulkScheduler.php:296
+#: classes/admin/WAS_BulkScheduler.php:309 classes/admin/WAS_PostAddon.php:311
+#: classes/admin/WAS_PostAddon.php:326 classes/admin/WAS_PostAddon.php:339
+msgid "Product page"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:283
+#: classes/admin/WAS_BulkScheduler.php:297
+#: classes/admin/WAS_BulkScheduler.php:310 classes/admin/WAS_PostAddon.php:312
+#: classes/admin/WAS_PostAddon.php:327 classes/admin/WAS_PostAddon.php:340
+msgid "Both"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:287 classes/admin/WAS_PostAddon.php:317
+msgid "Countdown"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:289 classes/admin/WAS_PostAddon.php:319
+msgid "Use countdown to start time?"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:293 classes/admin/WAS_PostAddon.php:323
+msgid "Where do you want to use start timer?"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:302 classes/admin/WAS_PostAddon.php:332
+msgid "Use countdown to end time?"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:306 classes/admin/WAS_PostAddon.php:336
+msgid "Where do you want to use end timer?"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:316
+#: classes/admin/WAS_OptionsMenu.php:108
+msgid "Save"
+msgstr ""
+
+#: classes/admin/WAS_BulkScheduler.php:322 classes/admin/WAS_PostAddon.php:356
+msgid "Message"
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:58
+msgid "Are you sure to reset all products availability?"
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:59
+msgid "Resetting, please wait..."
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:60
+msgid "Resetting process has been completed!"
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:61
+msgid "Error, please retry."
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:64
+msgid "Availability scheduler options"
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:70
+msgid "Time offset & format"
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:75
+msgid "Current server time with offeset is: "
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:79
+msgid "Minutes offset (Ex.: 60 = +1 hour, 90 = +1.30 hours, -120 = -2 hours) "
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:83
+msgid "Start and End shortcode time format"
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:85
+msgid "24-hour format"
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:86
+msgid "12-hour format"
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:87
+msgid "12-hour format with am/pm"
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:92
+msgid "Total sales progress bar style"
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:94
+msgid "Progress bar color"
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:98
+msgid "Progress bar background color"
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:102
+msgid ""
+"Hide progress bar label (by default under the progress bar is displayed a "
+"label like: \"3 / 10\". This label report current sales on total sales limit)"
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:113
+msgid "Reset product availability settings"
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:116
+msgid ""
+"By pressing the follow button all product availability settings will be "
+"restored to the state they were before the plugin was used. Note that if a "
+"product was setted as draft due to expiring, if you wish to make it "
+"available again you have to manually restore its status to publish."
+msgstr ""
+
+#: classes/admin/WAS_OptionsMenu.php:120
+msgid "Reset"
+msgstr ""
+
+#: classes/admin/WAS_PostAddon.php:15
+msgid "Availability Scheduler"
+msgstr ""
+
+#: classes/admin/WAS_PostAddon.php:132
+msgid "Today total product sales"
+msgstr ""
+
+#: classes/admin/WAS_PostAddon.php:137
+msgid "Today total sales: "
+msgstr ""
+
+#: classes/admin/WAS_PostAddon.php:141
+msgid "Expiring date & messages"
+msgstr ""
+
+#: classes/admin/WAS_PostAddon.php:145
+#: template/product_bundle_add_to_cart.php:89
+msgid "Clear"
+msgstr ""
+
+#: classes/admin/WAS_PostAddon.php:204
+msgid "Unavailable during the selected time range"
+msgstr ""
+
+#: classes/admin/WAS_PostAddon.php:232
+msgid ""
+"Apply the current availability rule to only a set of user roles or to all "
+"roles except the ones selected. "
+msgstr ""
+
+#: classes/admin/WAS_PostAddon.php:233
+msgid ""
+"If at least a role has been selected the product will be made unavailable "
+"for not logged users."
+msgstr ""
+
+#: classes/admin/WAS_PostAddon.php:270
+msgid "Shop page message"
+msgstr ""
+
+#: classes/admin/WAS_PostAddon.php:270 classes/admin/WAS_PostAddon.php:282
+msgid "(HTML code is allowed)"
+msgstr ""
+
+#: classes/admin/WAS_PostAddon.php:277
+msgid ""
+"By default shop message is shown only before start time and after end time. "
+"Check this box to always show it."
+msgstr ""
+
+#: classes/admin/WAS_PostAddon.php:282
+msgid "Product page message"
+msgstr ""
+
+#: classes/admin/WAS_PostAddon.php:289
+msgid ""
+"By default product message is showed only before start time and after end "
+"time. Check this box to always show it."
+msgstr ""
+
+#: classes/com/WAS_Product.php:103
+#, php-format
+msgid ""
+"You cannot buy product %s. If you procede with the checkout it will not be "
+"included in your order"
+msgstr ""
+
+#: classes/com/WAS_Product.php:162
+msgid "the selected product"
+msgstr ""
+
+#: classes/com/WAS_Product.php:164
+#, php-format
+msgid "You cannot buy more than %d for the product %s."
+msgstr ""
+
+#: classes/frontend/WAS_Remover.php:97
+msgid "sec"
+msgstr ""
+
+#: classes/frontend/WAS_Remover.php:98
+msgid "min"
+msgstr ""
+
+#: classes/frontend/WAS_Remover.php:99
+msgid "hr"
+msgstr ""
+
+#: classes/frontend/WAS_Remover.php:100
+msgid "days"
+msgstr ""
+
+#: classes/frontend/WAS_Remover.php:101
+msgid "weeks"
+msgstr ""
+
+#: template/product_bundle_add_to_cart.php:83
+msgid "Choose"
+msgstr ""
+
+#: template/sales_progress.php:7
+#, php-format
+msgid "%d / %d"
+msgstr ""
+
+#: woocommerce-availability-scheduler.php:78
+msgid "Availability scheduler"
+msgstr ""
+
+#: woocommerce-availability-scheduler.php:80
+msgid "Options"
+msgstr ""

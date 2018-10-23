@@ -16,7 +16,7 @@ if( ! defined( 'BUSINESSX_VERSION' ) ) {
 	define( 'BUSINESSX_VERSION', '1.0.5.7' ); }
 
 if( ! defined( 'BUSINESSX_AC_URL' ) ) {
-	define( 'BUSINESSX_AC_URL', '//www.acosmin.com/' ); }
+	define( 'BUSINESSX_AC_URL', '//www.maahi.ca/' ); }
 
 if( ! defined( 'BUSINESSX_AC_DOCS_URL' ) && defined( 'BUSINESSX_AC_URL' ) ) {
 	define( 'BUSINESSX_AC_DOCS_URL', BUSINESSX_AC_URL . 'documentation/businessx/' ); }
@@ -168,7 +168,8 @@ if ( ! function_exists( 'businessx_scripts' ) ) {
 
         // Add the following two lines //
         wp_enqueue_style('bootstrap-cdn-css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
-        wp_enqueue_script('bootstrap-cdn-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
+		wp_enqueue_script('bootstrap-cdn-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
+		wp_enqueue_style('bootstrap-social-cdn-css', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css');
         // ------               -------//
         wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
         wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('parent-style'));
@@ -414,3 +415,110 @@ if ( !is_user_logged_in() ) {
 function bbloomer_print_login_to_see() {
 echo '<a href="' . get_permalink(wc_get_page_id('myaccount')) . '">' . __('Login to see prices', 'theme_name') . '</a>';
 }
+// Allows for the display/non-display of products based off days allowed to be sold.
+// This only works in conjunction with editing
+// the woocommerce "content-product.php" template file
+function check_for_product_allowed_days ( $product ) {
+
+	$product_id  =  $product->id;
+	$product_terms  =  get_the_terms ( $product_id, 'product_tag' );
+	// remove the strtolower if you capitalized your tag names
+	$current_day  =  strtolower ( date ( 'l' ) );
+
+	// $all_days value should be the name of the tag
+	// that you want to be able to be ordered on all days
+	$all_days  =  'all days';
+	foreach ( $product_terms as $tag ) {
+		if ( $tag->name  ==  $current_day || $tag->name  ==  $all_days ) {
+			$product_is_visible  =  true;
+			break;
+		}
+		else {
+			$product_is_visible  =  false;
+		}
+	}
+	return $product_is_visible;
+}
+
+/**
+ * Change number of products that are displayed per page (shop page)
+ */
+add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
+
+function new_loop_shop_per_page( $cols ) {
+  // $cols contains the current number of products per page based on the value stored on Options -> Reading
+  // Return the number of products you wanna show per page.
+  $cols = 100;
+  return $cols;
+}
+
+/**
+ * Remove the password strength meter script from the scripts queue
+ * you can also use wp_print_scripts hook
+ */
+add_action( 'wp_enqueue_scripts', 'misha_deactivate_pass_strength_meter', 10 );
+function misha_deactivate_pass_strength_meter() {
+ 
+	wp_dequeue_script( 'wc-password-strength-meter' );
+ 
+}
+/**
+ * Change the placeholder image
+ */
+add_filter('woocommerce_placeholder_img_src', 'custom_woocommerce_placeholder_img_src');
+
+function custom_woocommerce_placeholder_img_src( $src ) {
+	$upload_dir = wp_upload_dir();
+	$uploads = untrailingslashit( $upload_dir['baseurl'] );
+	// replace with path to your image
+	$src = $uploads . '/Image_coming_soon.png';
+	 
+	return $src;
+}
+// show online only or POS / Online items in category page as well
+add_action( 'woocommerce_product_query', 'hss_shop_query', 10 , 2);
+function hss_shop_query( $q, $that )
+{
+// $q->set( 'author', $vendor_id );
+    if ( ! is_admin()  ) {
+        $meta_query = $q->get( 'meta_query' );
+
+        if (!is_array($meta_query)){
+            $meta_query = array();
+        }
+        $bHasPOSVisibility = false;
+        $bHasOutOfStock = false;
+
+        foreach ($meta_query as $mq) {
+            if ($q->key == '_pos_visibility'){
+                $bHasPOSVisibility = true;
+            } else if ($q->key == '_stock_status'){
+                $bHasOutOfStock = true;
+            }
+        }
+
+        if (!$bHasPOSVisibility){
+            $meta_query[] = array(
+                'key'       => '_pos_visibility',
+                'value'     => 'pos_only',
+                'compare'   => '!='
+                );
+        }
+        if (!$bHasOutOfStock){
+            $meta_query[] = array(
+                'key'       => '_stock_status',
+                'value'     => 'outofstock',
+                'compare'   => '!='
+                );
+        }
+        $q->set( 'meta_query', $meta_query);
+    }
+
+//error_log("Query: ".var_export($q, true));
+}
+
+
+///TEMPORARY
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart');
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart');

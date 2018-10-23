@@ -16869,7 +16869,7 @@ var Item = ItemView.extend({
   className: 'list-row',
 
   ui: {
-    add      : 'a[data-action="add"]',
+    add      : 'div[data-action="add"]',
     popover  : 'a[data-action="variations"]',
     filter   : '.title ul.variations li a',
     open     : 'a[data-action="expand"]',

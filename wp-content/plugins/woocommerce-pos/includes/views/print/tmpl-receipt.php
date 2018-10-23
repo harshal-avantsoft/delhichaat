@@ -14,6 +14,10 @@
       font-family: 'Arial', sans-serif;
       line-height: 1.4;
       font-size: 14px;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      text-transform: capitalize !important;
     }
     h1,h2,h3,h4,h5,h6 {
       margin: 0;
@@ -25,13 +29,15 @@
 
     /* Spacing */
     .order-branding, .order-addresses, .order-info, .order-items, .order-notes, .order-thanks {
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
 
     /* Branding */
     .order-branding h1 {
       font-size: 2em;
       font-weight: bold;
+      margin-right: 30% !important;
+      margin-left: 30% !important;
     }
 
     /* Addresses */
@@ -58,7 +64,7 @@
     }
     table.order-info th {
       text-align: left;
-      width: 30%;
+      width: 40%;
     }
     table.order-items {
       border-bottom: 3px solid #000;
@@ -107,48 +113,24 @@
 </head>
 
 <body>
-<div class="order-branding">
-  <h1><?php bloginfo( 'name' ); ?></h1>
+<div class="order-branding" style="width:100%; text-align:center;">
+  <img src="<?php echo wp_get_attachment_url("6"); ?>" width="auto" height="50" />
+  <div>11-844 51 St E, Saskatoon, SK S7K 5C7</div>
 </div>
-<div class="order-addresses">
-  <div class="billing-address">
-    {{formatAddress billing_address title="<?php _e( 'Billing Address', 'woocommerce-pos' ); ?>"}}
-  </div>
-  <div class="shipping-address">
-    {{formatAddress shipping_address title="<?php _e( 'Shipping Address', 'woocommerce-pos' ); ?>"}}
-  </div>
-</div>
+<h2 style="text-align: center;">Receipt</h2>
 <table class="order-info">
   <tr>
-    <th><?php _e( 'Order Number', 'woocommerce-pos' ); ?></th>
+    <th><?php _e( 'Order #', 'woocommerce-pos' ); ?></th>
     <td>{{order_number}}</td>
   </tr>
   <tr>
-    <th><?php _e( 'Order Date', 'woocommerce-pos' ); ?></th>
-    <td>{{formatDate completed_at format="MMMM Do YYYY, h:mm:ss a"}}</td>
+    <th><?php _e( 'Date', 'woocommerce-pos' ); ?></th>
+    <td>{{formatDate completed_at format="MM/DD/YYYY, h:mm A "}}</td>
   </tr>
-  {{#if cashier}}
   <tr>
-    <th><?php _e( 'Cashier', 'woocommerce-pos' ); ?></th>
-    <td>{{cashier.first_name}} {{cashier.last_name}}</td>
-  </tr>
-  {{/if}}
-  <tr>
-    <th><?php _e( 'Payment Method', 'woocommerce-pos' ); ?></th>
+    <th><?php _e( 'Payment Type', 'woocommerce-pos' ); ?></th>
     <td>{{payment_details.method_title}}</td>
   </tr>
-  {{#if billing_address.email}}
-  <tr>
-    <th><?php /* translators: woocommerce */ _e( 'Email', 'woocommerce' ); ?></th>
-    <td>{{billing_address.email}}</td>
-  </tr>
-  {{/if}}
-  {{#if billing_address.phone}}
-  <tr>
-    <th><?php /* translators: woocommerce */ _e( 'Telephone', 'woocommerce' ); ?></th>
-    <td>{{billing_address.phone}}</td>
-  </tr>
-  {{/if}}
 </table>
 <table class="order-items">
   <thead>
@@ -253,6 +235,12 @@
     {{/if}}
   </tfoot>
 </table>
-<div class="order-notes">{{note}}</div>
+<div style="text-align:center;">GST# 80111 2582 RT0001</div>
+<br/><br/>
+<h4 style="text-align: center;">{{note}}</h4>
+<br/><br/>
+<div style="text-align:center;">Thank you</div>
+	<div style="text-align:center;"><small>Please visit and logon our website to order more delicious dishes and get updates.</small></div>
+<div style="text-align:center;text-transform: lowercase !important;"><small>www.delhichaat.ca</small></div>
 </body>
 </html>

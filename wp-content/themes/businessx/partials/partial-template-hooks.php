@@ -50,7 +50,7 @@ add_action( 'businessx_footer__sidebars', 'businessx_footer_sidebar_2', 20 ); //
 add_action( 'businessx_footer__sidebars', 'businessx_footer_sidebar_3', 30 ); // Footer sidebar #3
 
 /* -- Footer Credits */
-add_action( 'businessx_footer__creds', 'businessx_logo_display', 10, 1 ); // Add logo, text or image
+// add_action( 'businessx_footer__creds', 'businessx_logo_display', 10, 1 ); // Add logo, text or image
 add_action( 'businessx_footer__creds', 'businessx_footer_creds_menu', 20 ); // Displays a menu in the footer
 add_action( 'businessx_footer__creds', 'businessx_footer_creds_copyright', 30 ); // Displays theme developer & website owner credits
 

@@ -57,6 +57,11 @@ define('NONCE_SALT',       'x]2}tsDlT_EHbo+=e]f-}^ 6U?6z+M;C1Y5H@J-h3N(|^}1-zh<u
 
 define( 'WP_AUTO_UPDATE_CORE', true );
 
+
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_DISPLAY', false );
+define( 'SCRIPT_DEBUG', true );
+define( 'WP_AUTO_UPDATE_CORE', false );
 /**
  * WordPress Database Table prefix.
  *
