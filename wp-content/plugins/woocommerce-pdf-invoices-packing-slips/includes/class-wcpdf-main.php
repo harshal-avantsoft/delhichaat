@@ -21,9 +21,6 @@ class Main {
 		if ( isset(WPO_WCPDF()->settings->debug_settings['enable_debug']) ) {
 			$this->enable_debug();
 		}
-		if ( isset(WPO_WCPDF()->settings->debug_settings['html_output']) ) {
-			add_filter( 'wpo_wcpdf_use_path', '__return_false' );
-		}
 
 		// include template specific custom functions
 		$template_path = WPO_WCPDF()->settings->get_template_path();
@@ -87,6 +84,9 @@ class Main {
 		// disable deprecation notices during email sending
 		add_filter( 'wcpdf_disable_deprecation_notices', '__return_true' );
 
+		// reload translations because WC may have switched to site locale (by setting the plugin_locale filter to site locale in wc_switch_to_site_locale())
+		WPO_WCPDF()->translations();
+
 		$attach_to_document_types = $this->get_documents_for_email( $email_id, $order );
 		foreach ( $attach_to_document_types as $document_type ) {
 			do_action( 'wpo_wcpdf_before_attachment_creation', $order, $email_id, $document_type );
@@ -106,8 +106,14 @@ class Main {
 				$attachments[] = $pdf_path;
 
 				do_action( 'wpo_wcpdf_email_attachment', $pdf_path, $document_type, $document );
-			} catch (Exception $e) {
-				error_log($e->getMessage());
+			} catch ( \Exception $e ) {
+				wcpdf_log_error( $e->getMessage(), 'critical', $e );
+				continue;
+			} catch ( \Dompdf\Exception $e ) {
+				wcpdf_log_error( 'DOMPDF exception: '.$e->getMessage(), 'critical', $e );
+				continue;
+			} catch ( \Error $e ) {
+				wcpdf_log_error( $e->getMessage(), 'critical', $e );
 				continue;
 			}
 		}
@@ -213,6 +219,7 @@ class Main {
 				$output_format = WPO_WCPDF()->settings->get_output_format( $document_type );
 				switch ( $output_format ) {
 					case 'html':
+						add_filter( 'wpo_wcpdf_use_path', '__return_false' );
 						$document->output_html();
 						break;
 					case 'pdf':
@@ -227,10 +234,19 @@ class Main {
 			} else {
 				wp_die( sprintf( __( "Document of type '%s' for the selected order(s) could not be generated", 'woocommerce-pdf-invoices-packing-slips' ), $document_type ) );
 			}
-		} catch (Exception $e) {
-			echo $e->getMessage();
+		} catch ( \Dompdf\Exception $e ) {
+			$message = 'DOMPDF Exception: '.$e->getMessage();
+			wcpdf_log_error( $message, 'critical', $e );
+			wcpdf_output_error( $message, 'critical', $e );
+		} catch ( \Exception $e ) {
+			$message = 'Exception: '.$e->getMessage();
+			wcpdf_log_error( $message, 'critical', $e );
+			wcpdf_output_error( $message, 'critical', $e );
+		} catch ( \Error $e ) {
+			$message = 'Fatal error: '.$e->getMessage();
+			wcpdf_log_error( $message, 'critical', $e );
+			wcpdf_output_error( $message, 'critical', $e );
 		}
-
 		exit;
 	}
 
@@ -417,8 +433,6 @@ class Main {
 		}
 
 		$document_settings = WPO_WCPDF()->settings->get_document_settings( $document_type );
-		// echo '<pre>';var_dump($document_type);echo '</pre>';
-		// error_log( var_export($document_settings,true) );
 
 		// check order total & setting
 		$order_total = $order->get_total();

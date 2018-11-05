@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
 <?php do_action( 'wpo_wcpdf_before_document', $this->type, $this->order ); ?>
 
 <table class="head container">
@@ -12,9 +13,8 @@
 		?>
 		</td>
 		<td class="shop-info">
-			<div class="shop-address"><?php $this->shop_address(); ?></div><br/><br/>
-			<div class="shop-address">https://www.delhichaat.ca</div><br/><br/>
-			<div class="shop-address">+1 (306) 978-9894</div>
+			<div class="shop-name"><h3><?php $this->shop_name(); ?></h3></div>
+			<div class="shop-address"><?php $this->shop_address(); ?></div>
 		</td>
 	</tr>
 </table>
@@ -27,12 +27,26 @@
 
 <table class="order-data-addresses">
 	<tr>
-	    <td class="address billing-address">
-	        &nbsp;
-        </td>
-        <td class="address shipping-address">
-            &nbsp;
-        </td>
+		<td class="address billing-address">
+			<!-- <h3><?php _e( 'Billing Address:', 'woocommerce-pdf-invoices-packing-slips' ); ?></h3> -->
+			<?php do_action( 'wpo_wcpdf_before_billing_address', $this->type, $this->order ); ?>
+			<?php $this->billing_address(); ?>
+			<?php do_action( 'wpo_wcpdf_after_billing_address', $this->type, $this->order ); ?>
+			<?php if ( isset($this->settings['display_email']) ) { ?>
+			<div class="billing-email"><?php $this->billing_email(); ?></div>
+			<?php } ?>
+			<?php if ( isset($this->settings['display_phone']) ) { ?>
+			<div class="billing-phone"><?php $this->billing_phone(); ?></div>
+			<?php } ?>
+		</td>
+		<td class="address shipping-address">
+			<?php if ( isset($this->settings['display_shipping_address']) && $this->ships_to_different_address()) { ?>
+			<h3><?php _e( 'Ship To:', 'woocommerce-pdf-invoices-packing-slips' ); ?></h3>
+			<?php do_action( 'wpo_wcpdf_before_shipping_address', $this->type, $this->order ); ?>
+			<?php $this->shipping_address(); ?>
+			<?php do_action( 'wpo_wcpdf_after_shipping_address', $this->type, $this->order ); ?>
+			<?php } ?>
+		</td>
 		<td class="order-data">
 			<table>
 				<?php do_action( 'wpo_wcpdf_before_order_data', $this->type, $this->order ); ?>
@@ -92,7 +106,7 @@
 				<?php do_action( 'wpo_wcpdf_after_item_meta', $this->type, $item, $this->order  ); ?>
 			</td>
 			<td class="quantity"><?php echo $item['quantity']; ?></td>
-			<td class="price"><?php echo $item['itemize_price']; ?></td>
+			<td class="price"><?php echo $item['order_price']; ?></td>
 		</tr>
 		<?php endforeach; endif; ?>
 	</tbody>
@@ -100,15 +114,12 @@
 		<tr class="no-borders">
 			<td class="no-borders">
 				<div class="customer-notes">
-				    <div>GST# <b>80111 2582 RT0001</b></div>
 					<?php do_action( 'wpo_wcpdf_before_customer_notes', $this->type, $this->order ); ?>
 					<?php if ( $this->get_shipping_notes() ) : ?>
 						<h3><?php _e( 'Customer Notes', 'woocommerce-pdf-invoices-packing-slips' ); ?></h3>
 						<?php $this->shipping_notes(); ?>
 					<?php endif; ?>
 					<?php do_action( 'wpo_wcpdf_after_customer_notes', $this->type, $this->order ); ?>
-				    <div class="row text-center">Thank you</div>
-	                <div class="row text-center"><small>Please visit and logon our website to order more delicious dishes and get updates.</small></div>
 				</div>				
 			</td>
 			<td class="no-borders" colspan="2">

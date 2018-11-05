@@ -91,16 +91,6 @@ abstract class Order_Document_Methods extends Order_Document {
 		//if we got here, it means the addresses are equal -> doesn't ship to different address!
 		return apply_filters( 'wpo_wcpdf_ships_to_different_address', false, $order, $this );
 	}
-
-	/**
-	 * Return / show first and last name
-	 */
-	public function billing_name() {
-		$customer_id = get_current_user_id();
-		echo ucwords(get_user_meta( $customer_id, 'billing_first_name', true ));
-		echo " ";
-		echo ucwords(get_user_meta( $customer_id, 'billing_last_name', true ));
-	}
 	
 	/**
 	 * Return/Show billing address
@@ -200,25 +190,25 @@ abstract class Order_Document_Methods extends Order_Document {
 			$custom_field = WCX_Order::get_meta( $this->order, $field_name, true );
 		}
 		// if not found, try prefixed with underscore (not when ACF is active!)
-		if ( !$custom_field && substr( $field_name, 0, 1 ) !== '_' && !$this->is_order_prop( "_{$field_name}" ) && !class_exists('ACF') ) {
+		if ( empty( $custom_field ) && substr( $field_name, 0, 1 ) !== '_' && !$this->is_order_prop( "_{$field_name}" ) && !class_exists('ACF') ) {
 			$custom_field = WCX_Order::get_meta( $this->order, "_{$field_name}", true );
 		}
 
 		// WC3.0 fallback to properties
 		$property = str_replace('-', '_', sanitize_title( ltrim($field_name, '_') ) );
-		if ( !$custom_field && is_callable( array( $this->order, "get_{$property}" ) ) ) {
+		if ( empty( $custom_field ) && is_callable( array( $this->order, "get_{$property}" ) ) ) {
 			$custom_field = $this->order->{"get_{$property}"}( 'view' );
 		}
 
 		// fallback to parent for refunds
-		if ( !$custom_field && $this->is_refund( $this->order ) ) {
+		if ( empty( $custom_field ) && $this->is_refund( $this->order ) ) {
 			$parent_order = $this->get_refund_parent( $this->order );
 			if ( !$this->is_order_prop( $field_name ) ) {
 				$custom_field = WCX_Order::get_meta( $parent_order, $field_name, true );
 			}
 
 			// WC3.0 fallback to properties
-			if ( !$custom_field && is_callable( array( $parent_order, "get_{$property}" ) ) ) {
+			if ( empty( $custom_field ) && is_callable( array( $parent_order, "get_{$property}" ) ) ) {
 				$custom_field = $parent_order->{"get_{$property}"}( 'view' );
 			}
 		}
@@ -507,7 +497,7 @@ abstract class Order_Document_Methods extends Order_Document {
 				$data['ex_price'] = $this->get_formatted_item_price( $item, 'total', 'excl' );
 				$data['price'] = $this->get_formatted_item_price( $item, 'total' );
 				$data['order_price'] = $this->order->get_formatted_line_subtotal( $item ); // formatted according to WC settings
-				$data['itemize_price'] = $this->order->get_line_total($item);
+
 				// Calculate the single price with the same rules as the formatted line subtotal (!)
 				// = before discount
 				$data['ex_single_price'] = $this->get_formatted_item_price( $item, 'single', 'excl' );
@@ -755,7 +745,7 @@ abstract class Order_Document_Methods extends Order_Document {
 	 */
 	public function get_woocommerce_totals() {
 		// get totals and remove the semicolon
-		$totals = apply_filters( 'wpo_wcpdf_raw_order_totals', $this->order->get_order_item_totals_custom(), $this->order );
+		$totals = apply_filters( 'wpo_wcpdf_raw_order_totals', $this->order->get_order_item_totals(), $this->order );
 		
 		// remove the colon for every label
 		foreach ( $totals as $key => $total ) {
