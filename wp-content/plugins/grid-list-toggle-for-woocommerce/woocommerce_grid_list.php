@@ -5,10 +5,10 @@ Plugin URI: https://www.phoeniixx.com/product/grid-list-toggle-woocommerce/
 Description:Adds a grid & list view toggle to product archives.
 Author: phoeniixx
 Text Domain: grid-list-toggle-for-Woocommerce
-Version: 1.3.3
+Version: 1.3.4
 Author URI: http://www.phoeniixx.com
 WC requires at least: 2.6.0
-WC tested up to: 3.4.4
+WC tested up to: 3.5.1
 **/
 if ( ! defined( 'ABSPATH' ) )
 {

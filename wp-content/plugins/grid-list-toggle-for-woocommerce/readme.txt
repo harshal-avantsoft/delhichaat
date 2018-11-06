@@ -4,7 +4,7 @@ Contributors: phoeniixx
 Tags: grid, woocommerce grid, list, woocommerce list, woocommerce, product, products, grid view , list view , masonry , woocommerce grid view , woocommerce list view , woocommerce, WC grid , WC list , tab icon , tab icon size , tab icon color , background color , bg color , hover bg color , hover background color , enable tab icon , disable tab icon.
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -201,6 +201,9 @@ Here is our premium wordpress theme
 4. Frontend view: User can choose grid view from the frontend.
 
 == Changelog ==
+
+= 1.3.4 - 06/11/2018 =
+* compatible with latest version of woocommerce
 
 = 1.3.3 - 07/08/2018 =
 * compatible with latest version of woocommerce
