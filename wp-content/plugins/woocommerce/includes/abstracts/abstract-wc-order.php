@@ -1694,59 +1694,6 @@ abstract class WC_Abstract_Order extends WC_Abstract_Legacy_Order {
 	}
 
 	/**
-	 * Gets subtotal - subtotal is shown before discounts, but with localised taxes.
-	 *
-	 * @param bool   $compound (default: false).
-	 * @param string $tax_display (default: the tax_display_cart value).
-	 * @return string
-	 */
-	public function get_subtotal_to_display_custom( $compound = false, $tax_display = '' ) {
-		$tax_display = $tax_display ? $tax_display : get_option( 'woocommerce_tax_display_cart' );
-		$subtotal    = 0;
-
-		if ( ! $compound ) {
-			foreach ( $this->get_items() as $item ) {
-				$subtotal += $item->get_subtotal();
-
-				if ( 'incl' === $tax_display ) {
-					$subtotal += $item->get_subtotal_tax();
-				}
-			}
-
-			$subtotal = wc_price( $subtotal, array( 'currency' => $this->get_currency() ) );
-
-			// if ( 'excl' === $tax_display && $this->get_prices_include_tax() && wc_tax_enabled() ) {
-			// 	$subtotal .= ' <small class="tax_label">' . WC()->countries->ex_tax_or_vat() . '</small>';
-			// }
-		} else {
-			if ( 'incl' === $tax_display ) {
-				return '';
-			}
-
-			foreach ( $this->get_items() as $item ) {
-				$subtotal += $item->get_subtotal();
-			}
-
-			// Add Shipping Costs.
-			$subtotal += $this->get_shipping_total();
-
-			// Remove non-compound taxes.
-			foreach ( $this->get_taxes() as $tax ) {
-				if ( $tax->is_compound() ) {
-					continue;
-				}
-				$subtotal = $subtotal + $tax->get_tax_total() + $tax->get_shipping_tax_total();
-			}
-
-			// Remove discounts.
-			$subtotal = $subtotal - $this->get_total_discount();
-			$subtotal = wc_price( $subtotal, array( 'currency' => $this->get_currency() ) );
-		}
-
-		return apply_filters( 'woocommerce_order_subtotal_to_display', $subtotal, $compound, $this );
-	}
-
-	/**
 	 * Gets shipping (formatted).
 	 *
 	 * @param string $tax_display Excl or incl tax display mode.
@@ -1755,7 +1702,7 @@ abstract class WC_Abstract_Order extends WC_Abstract_Legacy_Order {
 	public function get_shipping_to_display( $tax_display = '' ) {
 		$tax_display = $tax_display ? $tax_display : get_option( 'woocommerce_tax_display_cart' );
 
-		if ( 0 < (float) $this->get_shipping_total() ) {
+		if ( 0 < abs( (float) $this->get_shipping_total() ) ) {
 
 			if ( 'excl' === $tax_display ) {
 
@@ -1807,23 +1754,6 @@ abstract class WC_Abstract_Order extends WC_Abstract_Legacy_Order {
 	 */
 	protected function add_order_item_totals_subtotal_row( &$total_rows, $tax_display ) {
 		$subtotal = $this->get_subtotal_to_display( false, $tax_display );
-
-		if ( $subtotal ) {
-			$total_rows['cart_subtotal'] = array(
-				'label' => __( 'Subtotal:', 'woocommerce' ),
-				'value' => $subtotal,
-			);
-		}
-	}
-
-	/**
-	 * Add total row for subtotal.
-	 *
-	 * @param array  $total_rows Reference to total rows array.
-	 * @param string $tax_display Excl or incl tax display mode.
-	 */
-	protected function add_order_item_totals_subtotal_row_custom( &$total_rows, $tax_display ) {
-		$subtotal = $this->get_subtotal_to_display_custom( false, $tax_display );
 
 		if ( $subtotal ) {
 			$total_rows['cart_subtotal'] = array(
@@ -1936,26 +1866,6 @@ abstract class WC_Abstract_Order extends WC_Abstract_Legacy_Order {
 		$this->add_order_item_totals_subtotal_row( $total_rows, $tax_display );
 		$this->add_order_item_totals_discount_row( $total_rows, $tax_display );
 		$this->add_order_item_totals_shipping_row( $total_rows, $tax_display );
-		$this->add_order_item_totals_fee_rows( $total_rows, $tax_display );
-		$this->add_order_item_totals_tax_rows( $total_rows, $tax_display );
-		$this->add_order_item_totals_total_row( $total_rows, $tax_display );
-
-		return apply_filters( 'woocommerce_get_order_item_totals', $total_rows, $this, $tax_display );
-	}
-
-	/**
-	 * Get totals for display on pages and in emails.
-	 *
-	 * @param mixed $tax_display Excl or incl tax display mode.
-	 * @return array
-	 */
-	public function get_order_item_totals_custom( $tax_display = '' ) {
-		$tax_display = $tax_display ? $tax_display : get_option( 'woocommerce_tax_display_cart' );
-		$total_rows  = array();
-
-		$this->add_order_item_totals_subtotal_row_custom( $total_rows, $tax_display );
-		$this->add_order_item_totals_discount_row( $total_rows, $tax_display );
-		// $this->add_order_item_totals_shipping_row( $total_rows, $tax_display );
 		$this->add_order_item_totals_fee_rows( $total_rows, $tax_display );
 		$this->add_order_item_totals_tax_rows( $total_rows, $tax_display );
 		$this->add_order_item_totals_total_row( $total_rows, $tax_display );

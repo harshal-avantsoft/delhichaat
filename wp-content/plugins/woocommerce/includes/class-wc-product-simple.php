@@ -50,7 +50,7 @@ class WC_Product_Simple extends WC_Product {
 	 * @return string
 	 */
 	public function add_to_cart_text() {
-		$text = $this->is_purchasable() && $this->is_in_stock() ? __( 'Order', 'woocommerce' ) : __( 'Read more', 'woocommerce' );
+		$text = $this->is_purchasable() && $this->is_in_stock() ? __( 'Add to cart', 'woocommerce' ) : __( 'Read more', 'woocommerce' );
 
 		return apply_filters( 'woocommerce_product_add_to_cart_text', $text, $this );
 	}
