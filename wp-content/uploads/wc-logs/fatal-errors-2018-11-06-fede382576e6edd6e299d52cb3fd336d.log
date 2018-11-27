@@ -1,0 +1,21 @@
+2018-11-06T16:40:04+00:00 CRITICAL syntax error, unexpected '}' in /Applications/MAMP/htdocs/delhichaat/wp-content/plugins/woocommerce-pos/includes/class-wc-pos-params.php on line 115
+
+2018-11-06T16:40:15+00:00 CRITICAL syntax error, unexpected '}' in /Applications/MAMP/htdocs/delhichaat/wp-content/plugins/woocommerce-pos/includes/class-wc-pos-params.php on line 115
+
+2018-11-06T16:40:54+00:00 CRITICAL syntax error, unexpected '}' in /Applications/MAMP/htdocs/delhichaat/wp-content/plugins/woocommerce-pos/includes/class-wc-pos-params.php on line 115
+
+2018-11-06T16:41:01+00:00 CRITICAL syntax error, unexpected '}' in /Applications/MAMP/htdocs/delhichaat/wp-content/plugins/woocommerce-pos/includes/class-wc-pos-params.php on line 115
+
+2018-11-06T16:50:08+00:00 CRITICAL syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /Applications/MAMP/htdocs/delhichaat/wp-content/plugins/woocommerce-pos/includes/class-wc-pos-params.php on line 116
+
+2018-11-06T17:23:54+00:00 CRITICAL Uncaught Error: Class 'ChromePhp' not found in /Applications/MAMP/htdocs/delhichaat/wp-content/plugins/woocommerce-pos/includes/class-wc-pos-params.php:121
+Stack trace:
+#0 /Applications/MAMP/htdocs/delhichaat/wp-content/plugins/woocommerce-pos/includes/class-wc-pos-params.php(44): WC_POS_Params->product_tabs()
+#1 /Applications/MAMP/htdocs/delhichaat/wp-content/plugins/woocommerce-pos/includes/class-wc-pos-template.php(440): WC_POS_Params->__construct()
+#2 /Applications/MAMP/htdocs/delhichaat/wp-includes/class-wp-hook.php(286): WC_POS_Template->payload('')
+#3 /Applications/MAMP/htdocs/delhichaat/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#4 /Applications/MAMP/htdocs/delhichaat/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#5 /Applications/MAMP/htdocs/delhichaat/wp-admin/admin-ajax.php(100): do_action('wp_ajax_wc_pos_...')
+#6 {main}
+  thrown in /Applications/MAMP/htdocs/delhichaat/wp-content/plugins/woocommerce-pos/includes/class-wc-pos-params.php on line 121
+

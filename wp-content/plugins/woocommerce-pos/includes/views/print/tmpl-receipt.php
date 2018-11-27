@@ -14,7 +14,7 @@
       font-family: 'Arial', sans-serif;
       line-height: 1.4;
       font-size: 14px;
-      max-width: 300px;
+      max-width: 275px;
       margin-left: auto;
       margin-right: auto;
       text-transform: capitalize !important;
@@ -68,6 +68,7 @@
     }
     table.order-items {
       border-bottom: 3px solid #000;
+		  max-width: 95%;
     }
     table.order-items thead tr {
       border-bottom: 3px solid #000;

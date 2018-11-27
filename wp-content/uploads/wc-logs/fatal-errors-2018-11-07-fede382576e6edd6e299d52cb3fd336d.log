@@ -1,0 +1,10 @@
+2018-11-06T18:10:20+00:00 CRITICAL Uncaught Error: Class 'ChromePhp' not found in /Applications/MAMP/htdocs/delhichaat/wp-content/plugins/woocommerce-pos/includes/class-wc-pos-apiv2.php:87
+Stack trace:
+#0 /Applications/MAMP/htdocs/delhichaat/wp-includes/class-wp-hook.php(286): WC_POS_APIv2->rest_dispatch_request(NULL, Object(WP_REST_Request), '/wc/v3/products', Array)
+#1 /Applications/MAMP/htdocs/delhichaat/wp-includes/plugin.php(203): WP_Hook->apply_filters(NULL, Array)
+#2 /Applications/MAMP/htdocs/delhichaat/wp-includes/rest-api/class-wp-rest-server.php(930): apply_filters('rest_dispatch_r...', NULL, Object(WP_REST_Request), '/wc/v3/products', Array)
+#3 /Applications/MAMP/htdocs/delhichaat/wp-includes/rest-api/class-wp-rest-server.php(321): WP_REST_Server->dispatch(Object(WP_REST_Request))
+#4 /Applications/MAMP/htdocs/delhichaat/wp-includes/rest-api.php(266): WP_REST_Server->serve_request('/wc/v3/products')
+#5 /Applications/MAMP/htdocs/delhichaat/wp-includes/class-wp-hook.php(286): rest_api_loaded(Object(WP))
+#6 /Applications/MAMP/htdocs/del in /Applications/MAMP/htdocs/delhichaat/wp-content/plugins/woocommerce-pos/includes/class-wc-pos-apiv2.php on line 87
+
