@@ -7,7 +7,7 @@
  * @author   Paul Kilmurray <paul@kilbot.com.au>
  * @link     http://www.woopos.com.au
  */
-
+include 'ChromePhp.php';
 class WC_POS_Params {
 
   /**
@@ -69,23 +69,41 @@ class WC_POS_Params {
    *
    * @return array
    */
+  
   private function product_tabs() {
-    return array(
+    $catArray = [];
+    $fixAry = array(
       'all' => array(
         /* translators: woocommerce */
         'label' => __( 'All', 'woocommerce'),
         'active' => true
       ),
-      'featured' => array(
-        /* translators: woocommerce */
-        'label' => __( 'Featured', 'woocommerce'),
-        'id' => 'featured:true'
-      ),
+      // 'featured' => array(
+      //   /* translators: woocommerce */
+      //   'label' => __( 'Featured', 'woocommerce'),
+      //   'id' => 'featured:true'
+      // ),
       'onsale' => array(
         'label' => _x( 'On Sale', 'Product tab: \'On Sale\' products', 'woocommerce-pos'),
         'id' => 'on_sale:true'
-      ),
+      )
     );
+    $args = array(
+      'taxonomy' => 'product_cat',
+      'hide_empty' => false,
+      'parent'   => 0
+    );
+    $product_cat = get_terms( $args );
+    if(count($product_cat) > 0) {
+      foreach ($product_cat as $parent_product_cat) {
+        $temp = array(trim('"' . $parent_product_cat -> slug . '"') => array(
+          'label' => _x($parent_product_cat -> name, 'Product tab: \'category\' products', 'woocommerce-pos'),
+          'id' => 'categories:' . $parent_product_cat -> slug
+        ));
+        $catArray = array_merge($catArray, $temp);
+      }
+    }
+    return array_merge($fixAry, $catArray);
   }
 
   /**

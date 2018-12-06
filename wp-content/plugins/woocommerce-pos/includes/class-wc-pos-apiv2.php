@@ -8,7 +8,7 @@
  * @author   Paul Kilmurray <paul@kilbot.com.au>
  * @link     http://www.woopos.com.au
  */
-
+include 'ChromePhp.php';
 class WC_POS_APIv2 {
 
 
@@ -107,6 +107,7 @@ class WC_POS_APIv2 {
 
       if( isset($filter['categories']) ) {
         $category = get_term_by( 'slug', $filter['categories'], 'product_cat' );
+        ChromePhp::log($category);
         if($category) {
           $request->set_param('category', strval($category->term_id) );
         } else {
